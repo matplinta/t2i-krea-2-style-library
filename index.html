@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A visual comparison library for Krea 2 prompt-defined styles.">
+  <title>Krea 2 Style Library</title>
+  <link rel="stylesheet" href="assets/app.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="shell">
+      <div class="masthead">
+        <div class="brand">
+          <h1>Krea 2 Style Library</h1>
+          <p class="eyebrow">Prompt style reference</p>
+        </div>
+        <div class="header-options" aria-label="Display and export controls">
+          <label class="toggle"><input id="favorites-only" type="checkbox"> Favorites only</label>
+          <label class="toggle"><input id="show-base-image" type="checkbox" aria-controls="catalog"> Show base image</label>
+          <label class="toggle"><input id="show-card-details" type="checkbox" aria-controls="catalog"> Show descriptors &amp; categories</label>
+          <label class="range-control">
+            <span>Images per row <output id="grid-columns-value" for="grid-columns">5</output></span>
+            <input id="grid-columns" type="range" min="2" max="8" value="5" step="1" aria-controls="catalog">
+          </label>
+          <details class="export-menu">
+            <summary class="action">Export</summary>
+            <div class="export-menu-panel">
+              <button id="export-all" class="action" type="button" disabled>Export all styles as JSON</button>
+              <button id="export-favorites" class="action" type="button" disabled>Export favorites as JSON</button>
+            </div>
+          </details>
+        </div>
+        <div class="summary" aria-live="polite">
+          <span id="library-summary">Loading styles…</span>
+          <span id="favorite-count">0 favorites</span>
+        </div>
+      </div>
+
+      <div class="toolbar" aria-label="Library filters">
+        <label class="control-group search-control" for="search">
+          <span>Search</span>
+          <input id="search" class="control" type="search" placeholder="Names, descriptors, or categories…" autocomplete="off">
+        </label>
+        <div class="control-group base-prompt-group">
+          <label for="base-prompt">Base prompt</label>
+          <div class="base-prompt-controls">
+            <select id="base-prompt" class="control"></select>
+            <button id="view-base-prompt" class="action prompt-action" type="button" disabled>View prompt</button>
+          </div>
+        </div>
+        <label class="control-group" for="category-filter">
+          <span>Category</span>
+          <select id="category-filter" class="control">
+            <option value="">All categories</option>
+          </select>
+        </label>
+        <label class="control-group" for="sort">
+          <span>Sort</span>
+          <select id="sort" class="control">
+            <option value="original">Original order</option>
+            <option value="az">Name A–Z</option>
+            <option value="za">Name Z–A</option>
+            <option value="favorites">Favorites first</option>
+          </select>
+        </label>
+      </div>
+
+    </div>
+  </header>
+
+  <main class="shell">
+    <div class="catalog-status">
+      <span id="result-count">Loading catalog…</span>
+      <span id="notice" role="status" aria-live="polite"></span>
+    </div>
+    <section id="catalog" class="catalog-grid" aria-label="Krea 2 styles"></section>
+  </main>
+
+  <dialog id="base-prompt-dialog" class="prompt-dialog" aria-labelledby="base-prompt-heading">
+    <div class="dialog-head">
+      <div>
+        <p class="eyebrow">Selected base prompt</p>
+        <h2 id="base-prompt-heading">Base prompt</h2>
+      </div>
+      <button id="close-base-prompt" class="dialog-close" type="button" aria-label="Close base prompt">×</button>
+    </div>
+    <pre id="base-prompt-text" class="prompt-text"></pre>
+  </dialog>
+
+  <dialog id="image-viewer" class="image-viewer" aria-labelledby="image-viewer-caption">
+    <button id="close-image-viewer" class="dialog-close image-viewer-close" type="button" aria-label="Close full image">×</button>
+    <figure>
+      <img id="image-viewer-image" alt="">
+      <figcaption id="image-viewer-caption"></figcaption>
+    </figure>
+  </dialog>
+
+  <script src="assets/app.js" defer></script>
+</body>
+</html>

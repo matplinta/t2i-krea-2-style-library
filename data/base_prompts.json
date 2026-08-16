@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "prompt_template": "Subject: {base_prompt}\n\nStyle: {style_name}. {style_descriptor}",
+  "prompts": [
+    {
+      "id": "portrait",
+      "label": "Portrait",
+      "prompt": "a brown-haired young woman with glasses, seated outside at the old town café, drinking orange juice, street in the background, side angle, looking at the viewer, ",
+      "seed": 123456789,
+      "width": 1024,
+      "height": 1536,
+      "enabled": true
+    },
+    {
+      "id": "plain-portrait",
+      "label": "Plain Portrait",
+      "prompt": "portrait view of a young adult woman with long dark curly hair and brown eyes, wearing a green sweater and small silver earrings, turned slightly to one side while looking at the viewer, against a plain cream-colored background",
+      "seed": 123456789,
+      "width": 1024,
+      "height": 1536,
+      "enabled": true
+    },
+    {
+      "id": "full-figure",
+      "label": "Full Figure",
+      "prompt": "full-body view of an adult man in a mustard-yellow coat opening a blue umbrella on a rain-wet city street at night",
+      "seed": 123456789,
+      "width": 1024,
+      "height": 1536,
+      "enabled": true
+    },
+    {
+      "id": "architecture",
+      "label": "Architecture",
+      "prompt": "a narrow street runs between stone buildings toward a red clock tower, a bicycle rests beside a blue door, with several potted plants along the pavement",
+      "seed": 123456789,
+      "width": 1536,
+      "height": 1024,
+      "enabled": true
+    },
+    {
+      "id": "animal-landscape",
+      "label": "Animal and Landscape",
+      "prompt": "a brown-and-white cow stands beside a shallow alpine river, with tall grass along the bank, a wooden fence nearby, and the Alps mountains in the distance",
+      "seed": 123456789,
+      "width": 1536,
+      "height": 1024,
+      "enabled": true
+    },
+    {
+      "id": "materials",
+      "label": "Materials",
+      "prompt": "a clear glass bottle, a metal teapot, a red apple, and a folded blue cloth arranged on a wooden table",
+      "seed": 123456789,
+      "width": 1024,
+      "height": 1024,
+      "enabled": true
+    },
+    {
+      "id": "panoramic-environment",
+      "label": "Panoramic Environment",
+      "prompt": "a passenger train crosses a stone bridge above a river valley, with a small village below and mountains in the distance",
+      "seed": 123456789,
+      "width": 1536,
+      "height": 864,
+      "enabled": true
+    }
+  ]
+}
