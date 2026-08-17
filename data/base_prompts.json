@@ -12,6 +12,15 @@
       "enabled": true
     },
     {
+      "id": "portrait-v2",
+      "label": "Portrait vol. 2",
+      "prompt": "a blonde young woman with glasses, green eyes, seated outside at coastal café, holding a small transparent cup of espresso, sea and cliff background, side angle, looking at the viewer,",
+      "seed": 123456789,
+      "width": 1024,
+      "height": 1536,
+      "enabled": true
+    },
+    {
       "id": "plain-portrait",
       "label": "Plain Portrait",
       "prompt": "portrait view of a young adult woman with long dark curly hair and brown eyes, wearing a green sweater and small silver earrings, turned slightly to one side while looking at the viewer, against a plain cream-colored background",
