@@ -235,6 +235,17 @@ class SiteTests(unittest.TestCase):
         self.assertIn("showCardDetails: false", javascript)
         self.assertIn("details-hidden", stylesheet)
 
+    def test_favorite_updates_do_not_rerender_the_entire_catalog(self):
+        javascript = (ROOT / "assets" / "app.js").read_text(encoding="utf-8")
+        favorite_handler = javascript[
+            javascript.index("function createFavoriteButton(style)"):
+            javascript.index("function updateImageViewer()")
+        ]
+        self.assertNotIn("render();", favorite_handler)
+        self.assertIn("updateFavoriteButton(button, style)", favorite_handler)
+        self.assertIn("reorderVisibleStyleCards(rows)", favorite_handler)
+        self.assertIn("button.closest('.style-card')?.remove()", favorite_handler)
+
     def test_responsive_grid_density_and_image_ratios_are_present(self):
         html = (ROOT / "index.html").read_text(encoding="utf-8")
         javascript = (ROOT / "assets" / "app.js").read_text(encoding="utf-8")

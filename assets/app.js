@@ -280,20 +280,54 @@
     return button;
   }
 
-  function createFavoriteButton(style) {
+  function updateFavoriteButton(button, style) {
     const favorite = state.favorites.has(style.id);
-    const button = document.createElement('button');
-    button.type = 'button';
-    button.className = 'favorite-button';
     button.setAttribute('aria-pressed', String(favorite));
     button.setAttribute('aria-label', `${favorite ? 'Remove' : 'Add'} ${style.name} ${favorite ? 'from' : 'to'} favorites`);
     button.title = favorite ? 'Remove from favorites' : 'Add to favorites';
+  }
+
+  function createEmptyState() {
+    const empty = document.createElement('div');
+    empty.className = 'empty-state';
+    empty.textContent = 'No styles match the current filters.';
+    return empty;
+  }
+
+  function reorderVisibleStyleCards(rows) {
+    const catalog = $('#catalog');
+    const cards = new Map(
+      [...catalog.querySelectorAll('.style-card[data-style-id]')]
+        .map((card) => [card.dataset.styleId, card]),
+    );
+    rows.forEach((style) => {
+      const card = cards.get(style.id);
+      if (card) catalog.appendChild(card);
+    });
+  }
+
+  function createFavoriteButton(style) {
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'favorite-button';
+    updateFavoriteButton(button, style);
     button.appendChild(heartIcon());
     button.addEventListener('click', () => {
       if (state.favorites.has(style.id)) state.favorites.delete(style.id);
       else state.favorites.add(style.id);
       saveFavorites();
-      render();
+      updateFavoriteButton(button, style);
+
+      const rows = filteredStyles();
+      if ($('#favorites-only').checked) {
+        button.closest('.style-card')?.remove();
+        if (!rows.length && !$('#catalog .empty-state')) {
+          $('#catalog').appendChild(createEmptyState());
+        }
+      } else if ($('#sort').value === 'favorites') {
+        reorderVisibleStyleCards(rows);
+      }
+      updateCounters(rows.length);
     });
     return button;
   }
@@ -454,6 +488,7 @@
   function createCard(style) {
     const card = document.createElement('article');
     card.className = 'style-card';
+    card.dataset.styleId = style.id;
 
     const heading = document.createElement('div');
     heading.className = 'card-heading';
@@ -497,10 +532,7 @@
     const fragment = document.createDocumentFragment();
     if (state.showBaseImage && activePrompt()) fragment.appendChild(createBaseCard());
     if (!rows.length) {
-      const empty = document.createElement('div');
-      empty.className = 'empty-state';
-      empty.textContent = 'No styles match the current filters.';
-      fragment.appendChild(empty);
+      fragment.appendChild(createEmptyState());
     } else {
       rows.forEach((style) => fragment.appendChild(createCard(style)));
     }
