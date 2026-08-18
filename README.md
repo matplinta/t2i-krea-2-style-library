@@ -8,7 +8,7 @@ The project grew out of a practical problem: long style lists are useful as wild
 
 ## What is included
 
-- Multiple globally selectable base prompts and an optional unstyled reference image
+- Multiple globally selectable base prompts and an optional unstyled reference image 
 - Search, category filtering, sorting, adjustable grid density, and full-image viewing
 - Browser-local favorites with favorites-only filtering
 - One-click copying of each style name and descriptor
