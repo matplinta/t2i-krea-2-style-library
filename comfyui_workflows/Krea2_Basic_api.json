@@ -1,0 +1,221 @@
+{
+  "1": {
+    "inputs": {
+      "unet_name": "krea2_turbo_fp8_scaled.safetensors",
+      "weight_dtype": "default"
+    },
+    "class_type": "UNETLoader",
+    "_meta": {
+      "title": "UNET Loader - Krea2 Turbo FP8"
+    }
+  },
+  "2": {
+    "inputs": {
+      "seed": [
+        "17",
+        0
+      ],
+      "steps": 8,
+      "cfg": 1,
+      "sampler_name": "euler",
+      "scheduler": "beta",
+      "denoise": 1,
+      "model": [
+        "18",
+        0
+      ],
+      "positive": [
+        "6",
+        0
+      ],
+      "negative": [
+        "8",
+        0
+      ],
+      "latent_image": [
+        "16",
+        4
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "KSampler"
+    }
+  },
+  "3": {
+    "inputs": {
+      "samples": [
+        "2",
+        0
+      ],
+      "vae": [
+        "4",
+        0
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "4": {
+    "inputs": {
+      "vae_name": "Wan2_1_VAE_fp32.safetensors"
+    },
+    "class_type": "VAELoader",
+    "_meta": {
+      "title": "VAE Loader"
+    }
+  },
+  "5": {
+    "inputs": {
+      "images": [
+        "3",
+        0
+      ]
+    },
+    "class_type": "PreviewImage",
+    "_meta": {
+      "title": "Preview Image"
+    }
+  },
+  "6": {
+    "inputs": {
+      "text": "",
+      "clip": [
+        "18",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "Positive Prompt"
+    }
+  },
+  "8": {
+    "inputs": {
+      "conditioning": [
+        "6",
+        0
+      ]
+    },
+    "class_type": "ConditioningZeroOut",
+    "_meta": {
+      "title": "Negative (Zero Out)"
+    }
+  },
+  "13": {
+    "inputs": {
+      "clip_name": "qwen3vl_4b_fp8_scaled.safetensors",
+      "type": "krea2",
+      "device": "default"
+    },
+    "class_type": "CLIPLoader",
+    "_meta": {
+      "title": "CLIP Loader - Krea2"
+    }
+  },
+  "16": {
+    "inputs": {
+      "mode": "Manual",
+      "latent_type": "latent_4x8",
+      "width": 1024,
+      "height": 1536,
+      "auto_detect": false,
+      "rescale_mode": "manual",
+      "rescale_value": 2,
+      "batch_size": 1
+    },
+    "class_type": "ResolutionMaster",
+    "_meta": {
+      "title": "Resolution Master"
+    }
+  },
+  "17": {
+    "inputs": {
+      "seed": 46668513403652
+    },
+    "class_type": "Seed (rgthree)",
+    "_meta": {
+      "title": "Seed (rgthree)"
+    }
+  },
+  "18": {
+    "inputs": {
+      "PowerLoraLoaderHeaderWidget": {
+        "type": "PowerLoraLoaderHeaderWidget"
+      },
+      "lora_1": {
+        "on": true,
+        "lora": "krea2filterbypass3.safetensors",
+        "strength": 1
+      },
+      "lora_2": {
+        "on": false,
+        "lora": "Purple_Graphics_KR2.safetensors",
+        "strength": 1
+      },
+      "lora_3": {
+        "on": false,
+        "lora": "Purple_Dreams_Kr2.safetensors",
+        "strength": 1.2
+      },
+      "lora_4": {
+        "on": false,
+        "lora": "KreaZhangXi_E10.safetensors",
+        "strength": 0.8
+      },
+      "lora_5": {
+        "on": false,
+        "lora": "Krea2-realism-V2.safetensors",
+        "strength": 1
+      },
+      "lora_6": {
+        "on": false,
+        "lora": "Elegance_Niji_KR2.safetensors",
+        "strength": 0.8
+      },
+      "lora_7": {
+        "on": false,
+        "lora": "lenovo_krea2.safetensors",
+        "strength": 0.8
+      },
+      "lora_8": {
+        "on": false,
+        "lora": "Krea2_Cinematic_Artstyle(1).safetensors",
+        "strength": 1
+      },
+      "lora_9": {
+        "on": false,
+        "lora": "GradientWilds_Krea2_epoch3.safetensors",
+        "strength": 1
+      },
+      "➕ Add Lora": "",
+      "model": [
+        "1",
+        0
+      ],
+      "clip": [
+        "13",
+        0
+      ]
+    },
+    "class_type": "Power Lora Loader (rgthree)",
+    "_meta": {
+      "title": "Power Lora Loader (rgthree)"
+    }
+  },
+  "19": {
+    "inputs": {
+      "filename_prefix": "krea2/2026_08_16/2026_08_16",
+      "images": [
+        "3",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save Image"
+    }
+  }
+}

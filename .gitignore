@@ -4,4 +4,3 @@ __pycache__/
 .DS_Store
 Thumbs.db
 *.part
-comfyui_workflows
