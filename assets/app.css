@@ -548,7 +548,7 @@ h1 {
   width: fit-content;
   max-width: 96vw;
   max-height: 96vh;
-  padding: 42px 12px 10px;
+  padding: 64px 12px 10px;
   overflow: hidden;
   border: 1px solid var(--line-strong);
   border-radius: 14px;
@@ -562,11 +562,15 @@ h1 {
   backdrop-filter: blur(5px);
 }
 
+.image-viewer-stage {
+  position: relative;
+  touch-action: pan-y;
+}
+
 .image-viewer figure {
   display: grid;
   margin: 0;
   place-items: center;
-  gap: 8px;
 }
 
 .image-viewer img {
@@ -574,19 +578,98 @@ h1 {
   width: auto;
   max-width: calc(96vw - 24px);
   height: auto;
-  max-height: calc(96vh - 88px);
+  max-height: calc(96vh - 78px);
+  max-height: calc(96dvh - 78px);
   border-radius: 8px;
   object-fit: contain;
 }
 
-.image-viewer figcaption {
-  max-width: min(900px, calc(96vw - 30px));
+.image-viewer-info {
+  position: absolute;
+  top: 10px;
+  right: 54px;
+  left: 16px;
+  min-width: 0;
+}
+
+.image-viewer-info h2,
+.image-viewer-info p {
   overflow: hidden;
-  color: var(--muted);
-  font-size: 0.82rem;
-  text-align: center;
+  margin: 0;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.image-viewer-info h2 {
+  color: var(--text);
+  font-size: 1rem;
+  line-height: 1.3;
+}
+
+.image-viewer-info p {
+  color: var(--muted);
+  font-size: 0.78rem;
+  line-height: 1.5;
+}
+
+.image-viewer-position::before {
+  content: "·";
+  padding-inline: 7px;
+  color: var(--line-strong);
+}
+
+.image-viewer-nav {
+  position: absolute;
+  top: 50%;
+  z-index: 3;
+  display: grid;
+  width: 42px;
+  height: 58px;
+  padding: 0 0 4px;
+  place-items: center;
+  transform: translateY(-50%);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 11px;
+  background: rgba(8, 8, 9, 0.62);
+  color: rgba(255, 255, 255, 0.86);
+  font-size: 2rem;
+  line-height: 1;
+  opacity: 0;
+  backdrop-filter: blur(6px);
+  transition: opacity 150ms ease, border-color 150ms ease, background 150ms ease, transform 150ms ease;
+}
+
+.image-viewer-stage.touch-navigation-visible .image-viewer-nav {
+  opacity: 0.56;
+}
+
+.image-viewer-nav:hover,
+.image-viewer-nav:focus-visible {
+  border-color: rgba(255, 255, 255, 0.3);
+  background: rgba(12, 12, 13, 0.88);
+  opacity: 1;
+}
+
+.image-viewer-nav:active {
+  transform: translateY(-50%) scale(0.95);
+}
+
+.image-viewer-nav[hidden] {
+  display: none;
+}
+
+.image-viewer-previous {
+  left: 18px;
+}
+
+.image-viewer-next {
+  right: 18px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .image-viewer-stage:hover .image-viewer-nav {
+    opacity: 0.56;
+  }
 }
 
 .image-viewer-close {

@@ -91,12 +91,19 @@
     <pre id="base-prompt-text" class="prompt-text"></pre>
   </dialog>
 
-  <dialog id="image-viewer" class="image-viewer" aria-labelledby="image-viewer-caption">
+  <dialog id="image-viewer" class="image-viewer" aria-labelledby="image-viewer-style-name" aria-describedby="image-viewer-prompt-label">
+    <div class="image-viewer-info">
+      <h2 id="image-viewer-style-name"></h2>
+      <p><span id="image-viewer-prompt-label"></span><span id="image-viewer-position" class="image-viewer-position"></span></p>
+    </div>
     <button id="close-image-viewer" class="dialog-close image-viewer-close" type="button" aria-label="Close full image">×</button>
-    <figure>
-      <img id="image-viewer-image" alt="">
-      <figcaption id="image-viewer-caption"></figcaption>
-    </figure>
+    <div class="image-viewer-stage">
+      <button id="previous-image" class="image-viewer-nav image-viewer-previous" type="button" aria-label="View previous image" hidden>‹</button>
+      <figure>
+        <img id="image-viewer-image" alt="">
+      </figure>
+      <button id="next-image" class="image-viewer-nav image-viewer-next" type="button" aria-label="View next image" hidden>›</button>
+    </div>
   </dialog>
 
   <script src="assets/app.js" defer></script>

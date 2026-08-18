@@ -19,6 +19,10 @@
     showCardDetails: false,
     gridColumns: 5,
   };
+  let viewerImages = [];
+  let viewerIndex = -1;
+  let touchGesture = null;
+  let touchNavigationTimer = null;
 
   function loadFavorites() {
     try {
@@ -294,15 +298,68 @@
     return button;
   }
 
-  function openImageViewer(image) {
-    const viewer = $('#image-viewer');
+  function updateImageViewer() {
+    if (!viewerImages.length || viewerIndex < 0) return;
+    const image = viewerImages[viewerIndex];
     const fullImage = $('#image-viewer-image');
     fullImage.src = image.currentSrc || image.src;
     fullImage.alt = image.alt;
-    $('#image-viewer-caption').textContent = image.alt;
+    $('#image-viewer-style-name').textContent = image.dataset.viewerStyleName || image.alt;
+    $('#image-viewer-prompt-label').textContent = image.dataset.viewerPromptLabel || '';
+    $('#image-viewer-position').textContent = `${viewerIndex + 1} / ${viewerImages.length}`;
+
+    const hasMultipleImages = viewerImages.length > 1;
+    const previousButton = $('#previous-image');
+    const nextButton = $('#next-image');
+    previousButton.hidden = !hasMultipleImages;
+    nextButton.hidden = !hasMultipleImages;
+    if (hasMultipleImages) {
+      const previousIndex = (viewerIndex - 1 + viewerImages.length) % viewerImages.length;
+      const nextIndex = (viewerIndex + 1) % viewerImages.length;
+      previousButton.setAttribute('aria-label', `View previous image: ${viewerImages[previousIndex].dataset.viewerStyleName}`);
+      nextButton.setAttribute('aria-label', `View next image: ${viewerImages[nextIndex].dataset.viewerStyleName}`);
+    }
+  }
+
+  function hideTouchViewerNavigation() {
+    clearTimeout(touchNavigationTimer);
+    touchNavigationTimer = null;
+    $('.image-viewer-stage').classList.remove('touch-navigation-visible');
+  }
+
+  function revealTouchViewerNavigation() {
+    clearTimeout(touchNavigationTimer);
+    $('.image-viewer-stage').classList.add('touch-navigation-visible');
+    touchNavigationTimer = setTimeout(hideTouchViewerNavigation, 2000);
+  }
+
+  function toggleTouchViewerNavigation() {
+    if ($('.image-viewer-stage').classList.contains('touch-navigation-visible')) {
+      hideTouchViewerNavigation();
+    } else {
+      revealTouchViewerNavigation();
+    }
+  }
+
+  function openImageViewer(image) {
+    const viewer = $('#image-viewer');
+    viewerImages = [...document.querySelectorAll('#catalog .image-wrap img')];
+    viewerIndex = viewerImages.indexOf(image);
+    if (viewerIndex < 0) {
+      viewerImages = [image];
+      viewerIndex = 0;
+    }
+    updateImageViewer();
     if (viewer.open) return;
     if (typeof viewer.showModal === 'function') viewer.showModal();
     else viewer.setAttribute('open', '');
+    if (window.matchMedia('(hover: none)').matches) revealTouchViewerNavigation();
+  }
+
+  function navigateImageViewer(offset) {
+    if (viewerImages.length < 2) return;
+    viewerIndex = (viewerIndex + offset + viewerImages.length) % viewerImages.length;
+    updateImageViewer();
   }
 
   function closeImageViewer() {
@@ -310,6 +367,10 @@
     if (typeof viewer.close === 'function' && viewer.open) viewer.close();
     else viewer.removeAttribute('open');
     $('#image-viewer-image').removeAttribute('src');
+    viewerImages = [];
+    viewerIndex = -1;
+    touchGesture = null;
+    hideTouchViewerNavigation();
   }
 
   function createImage(style, { allowFavorite = true } = {}) {
@@ -337,6 +398,8 @@
     const image = document.createElement('img');
     image.src = generated.path;
     image.alt = `${style.name} generated with ${activePrompt()?.label || 'the selected base prompt'}`;
+    image.dataset.viewerStyleName = style.name;
+    image.dataset.viewerPromptLabel = activePrompt()?.label || 'Selected base prompt';
     image.loading = 'lazy';
     image.decoding = 'async';
     image.width = width;
@@ -364,7 +427,7 @@
 
   function createBaseCard() {
     const prompt = activePrompt();
-    const reference = { id: BASE_IMAGE_ID, name: 'Base image' };
+    const reference = { id: BASE_IMAGE_ID, name: 'Base image — no style' };
     const card = document.createElement('article');
     card.className = 'style-card base-image-card';
 
@@ -524,11 +587,52 @@
       else event.currentTarget.removeAttribute('open');
     });
     $('#close-image-viewer').addEventListener('click', closeImageViewer);
+    $('#previous-image').addEventListener('click', () => navigateImageViewer(-1));
+    $('#next-image').addEventListener('click', () => navigateImageViewer(1));
+    const imageViewerStage = $('.image-viewer-stage');
+    imageViewerStage.addEventListener('pointerdown', (event) => {
+      if (event.pointerType !== 'touch' || event.target.closest('.image-viewer-nav')) return;
+      touchGesture = {
+        pointerId: event.pointerId,
+        startX: event.clientX,
+        startY: event.clientY,
+      };
+    });
+    imageViewerStage.addEventListener('pointerup', (event) => {
+      if (event.pointerType !== 'touch') return;
+      if (event.target.closest('.image-viewer-nav')) {
+        revealTouchViewerNavigation();
+        touchGesture = null;
+        return;
+      }
+      if (!touchGesture || touchGesture.pointerId !== event.pointerId) return;
+      const deltaX = event.clientX - touchGesture.startX;
+      const deltaY = event.clientY - touchGesture.startY;
+      touchGesture = null;
+      if (Math.abs(deltaX) >= 48 && Math.abs(deltaX) > Math.abs(deltaY) * 1.2) {
+        navigateImageViewer(deltaX < 0 ? 1 : -1);
+        revealTouchViewerNavigation();
+      } else if (Math.abs(deltaX) < 12 && Math.abs(deltaY) < 12) {
+        toggleTouchViewerNavigation();
+      }
+    });
+    imageViewerStage.addEventListener('pointercancel', () => {
+      touchGesture = null;
+    });
     $('#image-viewer').addEventListener('click', (event) => {
       if (event.target === event.currentTarget) closeImageViewer();
     });
+    $('#image-viewer').addEventListener('keydown', (event) => {
+      if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
+      event.preventDefault();
+      navigateImageViewer(event.key === 'ArrowLeft' ? -1 : 1);
+    });
     $('#image-viewer').addEventListener('close', () => {
       $('#image-viewer-image').removeAttribute('src');
+      viewerImages = [];
+      viewerIndex = -1;
+      touchGesture = null;
+      hideTouchViewerNavigation();
     });
     $('#export-all').addEventListener('click', () => {
       downloadJson('krea2-styles.json', state.styles);
