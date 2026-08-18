@@ -94,7 +94,7 @@
   function loadGridColumnsPreference() {
     try {
       const value = Number.parseInt(localStorage.getItem(GRID_COLUMNS_KEY) || '', 10);
-      return Number.isInteger(value) ? Math.min(8, Math.max(2, value)) : 5;
+      return Number.isInteger(value) ? Math.min(8, Math.max(1, value)) : 5;
     } catch (_) {
       return 5;
     }
@@ -109,7 +109,6 @@
   }
 
   function responsiveColumnCap() {
-    if (window.innerWidth <= 420) return 1;
     if (window.innerWidth <= 700) return 2;
     if (window.innerWidth <= 1050) return 3;
     if (window.innerWidth <= 1320) return 4;
@@ -117,8 +116,10 @@
   }
 
   function applyGridColumns() {
-    const visibleColumns = Math.min(state.gridColumns, responsiveColumnCap());
-    $('#grid-columns').value = String(state.gridColumns);
+    const columnCap = responsiveColumnCap();
+    const visibleColumns = Math.min(state.gridColumns, columnCap);
+    $('#grid-columns').max = String(columnCap);
+    $('#grid-columns').value = String(visibleColumns);
     $('#grid-columns-value').value = String(visibleColumns);
     $('#grid-columns-value').textContent = String(visibleColumns);
     $('#grid-columns').title = visibleColumns === state.gridColumns
@@ -475,6 +476,11 @@
   }
 
   function bindEvents() {
+    $('#mobile-menu-toggle').addEventListener('click', (event) => {
+      const header = $('.site-header');
+      const isOpen = header.classList.toggle('mobile-menu-open');
+      event.currentTarget.setAttribute('aria-expanded', String(isOpen));
+    });
     $('#search').addEventListener('input', render);
     ['#sort', '#category-filter', '#favorites-only'].forEach((selector) => {
       $(selector).addEventListener('change', render);

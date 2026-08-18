@@ -15,13 +15,13 @@
           <h1>Krea 2 Style Library</h1>
           <p class="eyebrow">Prompt style reference</p>
         </div>
-        <div class="header-options" aria-label="Display and export controls">
+        <div id="header-options" class="header-options" aria-label="Display and export controls">
           <label class="toggle"><input id="favorites-only" type="checkbox"> Favorites only</label>
           <label class="toggle"><input id="show-base-image" type="checkbox" aria-controls="catalog"> Show base image</label>
-          <label class="toggle"><input id="show-card-details" type="checkbox" aria-controls="catalog"> Show descriptors &amp; categories</label>
-          <label class="range-control">
+          <label class="toggle details-toggle"><input id="show-card-details" type="checkbox" aria-controls="catalog"> Show descriptors &amp; categories</label>
+          <label class="range-control density-control">
             <span>Images per row <output id="grid-columns-value" for="grid-columns">5</output></span>
-            <input id="grid-columns" type="range" min="2" max="8" value="5" step="1" aria-controls="catalog">
+            <input id="grid-columns" type="range" min="1" max="8" value="5" step="1" aria-controls="catalog">
           </label>
           <details class="export-menu">
             <summary class="action">Export</summary>
@@ -35,9 +35,12 @@
           <span id="library-summary">Loading styles…</span>
           <span id="favorite-count">0 favorites</span>
         </div>
+        <button id="mobile-menu-toggle" class="mobile-menu-toggle" type="button" aria-expanded="false" aria-controls="header-options library-filters">
+          <span>Filters &amp; options</span>
+        </button>
       </div>
 
-      <div class="toolbar" aria-label="Library filters">
+      <div id="library-filters" class="toolbar" aria-label="Library filters">
         <label class="control-group search-control" for="search">
           <span>Search</span>
           <input id="search" class="control" type="search" placeholder="Names, descriptors, or categories…" autocomplete="off">

@@ -240,9 +240,25 @@ class SiteTests(unittest.TestCase):
         javascript = (ROOT / "assets" / "app.js").read_text(encoding="utf-8")
         stylesheet = (ROOT / "assets" / "app.css").read_text(encoding="utf-8")
         self.assertIn('id="grid-columns"', html)
+        self.assertIn('id="grid-columns" type="range" min="1" max="8"', html)
         self.assertIn("GRID_COLUMNS_KEY", javascript)
+        self.assertIn("Math.max(1, value)", javascript)
+        self.assertIn("$('#grid-columns').max = String(columnCap)", javascript)
         self.assertIn("imageWrap.style.aspectRatio", javascript)
         self.assertIn("repeat(var(--columns, 5)", stylesheet)
+        self.assertNotIn("if (window.innerWidth <= 420) return 1", javascript)
+        self.assertNotIn("@media (max-width: 420px)", stylesheet)
+
+    def test_mobile_header_controls_are_collapsible(self):
+        html = (ROOT / "index.html").read_text(encoding="utf-8")
+        javascript = (ROOT / "assets" / "app.js").read_text(encoding="utf-8")
+        stylesheet = (ROOT / "assets" / "app.css").read_text(encoding="utf-8")
+        self.assertIn('id="mobile-menu-toggle"', html)
+        self.assertIn('aria-expanded="false"', html)
+        self.assertIn('aria-controls="header-options library-filters"', html)
+        self.assertIn("mobile-menu-open", javascript)
+        self.assertIn(".mobile-menu-open .header-options", stylesheet)
+        self.assertIn(".mobile-menu-open .toolbar", stylesheet)
 
     def test_unstyled_base_image_has_an_off_by_default_toggle(self):
         html = (ROOT / "index.html").read_text(encoding="utf-8")
