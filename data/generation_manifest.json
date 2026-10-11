@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "workflow_sha256": "d39244e2c313e355436c70b24c27406b1aed72843476b772cb29181bd50808c5",
-  "updated_at": "2026-08-17T17:37:22Z",
+  "workflow_sha256": "9ecf1a4d26182d20dd3caa1f0097cd34aec22a6c336ddd09d447f6941d69ecd2",
+  "updated_at": "2026-10-11T14:47:55Z",
   "images": {
     "portrait/anime-style": {
       "base_prompt_id": "portrait",
@@ -64,7 +64,7 @@
         "subfolder": "krea2-style-library\\portrait",
         "type": "output"
       },
-      "recovered_at": "2026-08-17T14:10:28Z"
+      "recovered_at": "2026-10-11T14:45:27Z"
     },
     "portrait/70s-anime": {
       "base_prompt_id": "portrait",
@@ -6049,7 +6049,7 @@
         "subfolder": "krea2-style-library\\full-figure",
         "type": "output"
       },
-      "recovered_at": "2026-08-17T14:10:28Z"
+      "recovered_at": "2026-10-11T14:45:27Z"
     },
     "full-figure/anime-style": {
       "base_prompt_id": "full-figure",
@@ -9934,7 +9934,7 @@
         "subfolder": "krea2-style-library\\portrait-v2",
         "type": "output"
       },
-      "recovered_at": "2026-08-17T14:10:28Z"
+      "recovered_at": "2026-10-11T14:45:27Z"
     },
     "portrait-v2/anime-style": {
       "base_prompt_id": "portrait-v2",
@@ -15961,7 +15961,7 @@
         "subfolder": "krea2-style-library\\plain-portrait",
         "type": "output"
       },
-      "recovered_at": "2026-08-17T14:10:28Z"
+      "recovered_at": "2026-10-11T14:45:27Z"
     },
     "plain-portrait/anime-style": {
       "base_prompt_id": "plain-portrait",
@@ -24130,7 +24130,7 @@
         "subfolder": "krea2-style-library\\architecture",
         "type": "output"
       },
-      "recovered_at": "2026-08-17T14:10:28Z"
+      "recovered_at": "2026-10-11T14:45:27Z"
     },
     "architecture/anime-style": {
       "base_prompt_id": "architecture",
@@ -30157,7 +30157,7 @@
         "subfolder": "krea2-style-library\\animal-landscape",
         "type": "output"
       },
-      "recovered_at": "2026-08-17T14:10:28Z"
+      "recovered_at": "2026-10-11T14:45:27Z"
     },
     "animal-landscape/anime-style": {
       "base_prompt_id": "animal-landscape",
@@ -36086,7 +36086,8 @@
         "filename": "base_00001_.png",
         "subfolder": "krea2-style-library\\materials",
         "type": "output"
-      }
+      },
+      "recovered_at": "2026-10-11T14:45:27Z"
     },
     "materials/anime-style": {
       "base_prompt_id": "materials",
@@ -41826,7 +41827,8 @@
         "filename": "base_00001_.png",
         "subfolder": "krea2-style-library\\panoramic-environment",
         "type": "output"
-      }
+      },
+      "recovered_at": "2026-10-11T14:45:27Z"
     },
     "panoramic-environment/anime-style": {
       "base_prompt_id": "panoramic-environment",
@@ -47544,6 +47546,166 @@
       "bytes": 329658,
       "comfy_output": {
         "filename": "thick-brushstrokes-painting_00001_.png",
+        "subfolder": "krea2-style-library\\panoramic-environment",
+        "type": "output"
+      }
+    },
+    "portrait/niji-v7-semi-real-anime": {
+      "base_prompt_id": "portrait",
+      "style_id": "niji-v7-semi-real-anime",
+      "kind": "style",
+      "status": "complete",
+      "path": "images/portrait/niji-v7-semi-real-anime.webp",
+      "seed": 123456789,
+      "width": 1024,
+      "height": 1536,
+      "prompt_sha256": "f046b1691e616ef6cd7f3880f16e5f9f7fff28fc056a22861a0f306e5fad3501",
+      "workflow_sha256": "9ecf1a4d26182d20dd3caa1f0097cd34aec22a6c336ddd09d447f6941d69ecd2",
+      "prompt_id": "a5f93efd-a731-44ff-be44-72e17dc1476d",
+      "generated_at": "2026-10-11T14:45:50Z",
+      "bytes": 169746,
+      "comfy_output": {
+        "filename": "niji-v7-semi-real-anime_00001_.png",
+        "subfolder": "krea2-style-library\\portrait",
+        "type": "output"
+      }
+    },
+    "portrait-v2/niji-v7-semi-real-anime": {
+      "base_prompt_id": "portrait-v2",
+      "style_id": "niji-v7-semi-real-anime",
+      "kind": "style",
+      "status": "complete",
+      "path": "images/portrait-v2/niji-v7-semi-real-anime.webp",
+      "seed": 123456789,
+      "width": 1024,
+      "height": 1536,
+      "prompt_sha256": "be8691f63877028239ff6c0d0af39f7cfc89e863945148dfeb7f331ebbb71ecb",
+      "workflow_sha256": "9ecf1a4d26182d20dd3caa1f0097cd34aec22a6c336ddd09d447f6941d69ecd2",
+      "prompt_id": "3ab1f65f-24d8-41c6-8a86-30e27f529973",
+      "generated_at": "2026-10-11T14:46:09Z",
+      "bytes": 152462,
+      "comfy_output": {
+        "filename": "niji-v7-semi-real-anime_00001_.png",
+        "subfolder": "krea2-style-library\\portrait-v2",
+        "type": "output"
+      }
+    },
+    "plain-portrait/niji-v7-semi-real-anime": {
+      "base_prompt_id": "plain-portrait",
+      "style_id": "niji-v7-semi-real-anime",
+      "kind": "style",
+      "status": "complete",
+      "path": "images/plain-portrait/niji-v7-semi-real-anime.webp",
+      "seed": 123456789,
+      "width": 1024,
+      "height": 1536,
+      "prompt_sha256": "91ffc3d8f2fbf7f52034c7814e275f37fcc1d9e8cfab441f90d12a9563880f51",
+      "workflow_sha256": "9ecf1a4d26182d20dd3caa1f0097cd34aec22a6c336ddd09d447f6941d69ecd2",
+      "prompt_id": "a19bc432-4689-434f-88ce-1118a9ed8a2a",
+      "generated_at": "2026-10-11T14:46:27Z",
+      "bytes": 146820,
+      "comfy_output": {
+        "filename": "niji-v7-semi-real-anime_00001_.png",
+        "subfolder": "krea2-style-library\\plain-portrait",
+        "type": "output"
+      }
+    },
+    "full-figure/niji-v7-semi-real-anime": {
+      "base_prompt_id": "full-figure",
+      "style_id": "niji-v7-semi-real-anime",
+      "kind": "style",
+      "status": "complete",
+      "path": "images/full-figure/niji-v7-semi-real-anime.webp",
+      "seed": 123456789,
+      "width": 1024,
+      "height": 1536,
+      "prompt_sha256": "ab1a561d283bc552260e3a5295caff0a413e770a410b362205bedd0ab929a000",
+      "workflow_sha256": "9ecf1a4d26182d20dd3caa1f0097cd34aec22a6c336ddd09d447f6941d69ecd2",
+      "prompt_id": "390f9c31-23cc-40bb-b326-b8d668d10241",
+      "generated_at": "2026-10-11T14:46:46Z",
+      "bytes": 137454,
+      "comfy_output": {
+        "filename": "niji-v7-semi-real-anime_00001_.png",
+        "subfolder": "krea2-style-library\\full-figure",
+        "type": "output"
+      }
+    },
+    "architecture/niji-v7-semi-real-anime": {
+      "base_prompt_id": "architecture",
+      "style_id": "niji-v7-semi-real-anime",
+      "kind": "style",
+      "status": "complete",
+      "path": "images/architecture/niji-v7-semi-real-anime.webp",
+      "seed": 123456789,
+      "width": 1536,
+      "height": 1024,
+      "prompt_sha256": "26bd07129296b7f3acfd38d9cc40f2935be12c10fe0163e15b04531b388dceb2",
+      "workflow_sha256": "9ecf1a4d26182d20dd3caa1f0097cd34aec22a6c336ddd09d447f6941d69ecd2",
+      "prompt_id": "0ad0b76e-9749-44d9-8807-7cc96a48df6e",
+      "generated_at": "2026-10-11T14:47:05Z",
+      "bytes": 219530,
+      "comfy_output": {
+        "filename": "niji-v7-semi-real-anime_00001_.png",
+        "subfolder": "krea2-style-library\\architecture",
+        "type": "output"
+      }
+    },
+    "animal-landscape/niji-v7-semi-real-anime": {
+      "base_prompt_id": "animal-landscape",
+      "style_id": "niji-v7-semi-real-anime",
+      "kind": "style",
+      "status": "complete",
+      "path": "images/animal-landscape/niji-v7-semi-real-anime.webp",
+      "seed": 123456789,
+      "width": 1536,
+      "height": 1024,
+      "prompt_sha256": "414f5bc281ea1c6a98d982ea9a27d13b37978977b8ffd999f5d183a67739aa0a",
+      "workflow_sha256": "9ecf1a4d26182d20dd3caa1f0097cd34aec22a6c336ddd09d447f6941d69ecd2",
+      "prompt_id": "1c07446e-de7a-4ee3-a775-d19ba1f2deb3",
+      "generated_at": "2026-10-11T14:47:24Z",
+      "bytes": 185148,
+      "comfy_output": {
+        "filename": "niji-v7-semi-real-anime_00001_.png",
+        "subfolder": "krea2-style-library\\animal-landscape",
+        "type": "output"
+      }
+    },
+    "materials/niji-v7-semi-real-anime": {
+      "base_prompt_id": "materials",
+      "style_id": "niji-v7-semi-real-anime",
+      "kind": "style",
+      "status": "complete",
+      "path": "images/materials/niji-v7-semi-real-anime.webp",
+      "seed": 123456789,
+      "width": 1024,
+      "height": 1024,
+      "prompt_sha256": "67a30c029b0e467d6e1f88ac4089f5402f3c51a4d5e296a1fc6a42deb63c234e",
+      "workflow_sha256": "9ecf1a4d26182d20dd3caa1f0097cd34aec22a6c336ddd09d447f6941d69ecd2",
+      "prompt_id": "0fc5e795-c550-4b06-92e3-ab72c2b98bcc",
+      "generated_at": "2026-10-11T14:47:38Z",
+      "bytes": 111078,
+      "comfy_output": {
+        "filename": "niji-v7-semi-real-anime_00001_.png",
+        "subfolder": "krea2-style-library\\materials",
+        "type": "output"
+      }
+    },
+    "panoramic-environment/niji-v7-semi-real-anime": {
+      "base_prompt_id": "panoramic-environment",
+      "style_id": "niji-v7-semi-real-anime",
+      "kind": "style",
+      "status": "complete",
+      "path": "images/panoramic-environment/niji-v7-semi-real-anime.webp",
+      "seed": 123456789,
+      "width": 1536,
+      "height": 864,
+      "prompt_sha256": "21503ecd5a6a011d3d2ef85bbccd2ec28ec7be542be1317fe353b078678bfacf",
+      "workflow_sha256": "9ecf1a4d26182d20dd3caa1f0097cd34aec22a6c336ddd09d447f6941d69ecd2",
+      "prompt_id": "5d43eb29-996d-404a-8683-ef651d2f67f8",
+      "generated_at": "2026-10-11T14:47:55Z",
+      "bytes": 181174,
+      "comfy_output": {
+        "filename": "niji-v7-semi-real-anime_00001_.png",
         "subfolder": "krea2-style-library\\panoramic-environment",
         "type": "output"
       }
