@@ -2812,6 +2812,16 @@
         "Anime & Manga",
         "Illustration"
       ]
+    },
+    {
+      "id": "soft-flash-pastel-fashion-photography",
+      "order": 288,
+      "name": "Soft-Flash Pastel Fashion Photography",
+      "descriptor": "A high-end candid fashion photography aesthetic with near-photographic realism, refined idealization, and polished editorial beauty treatment. Subjects have elegant natural proportions, delicately idealized facial structure, luminous perfected skin, smooth tonal transitions, softened pores, subtle microtexture, and a refined beauty-retouched finish. Hair, fabrics, materials, and architectural surroundings retain intricate photographic detail and realistic depth. Soft ambient daylight blends with gentle on-camera flash, creating a delicate frontal lift, subtle catchlights, natural reflected light, soft color bounce, and smooth light falloff. The palette is pastel, airy, and harmonized, featuring blush, cream, beige, peach, powder blue, soft aqua, and muted warm neutrals with delicate saturation and refined cinematic grading. Natural lens perspective and subtle depth of field keep the subject crisp while the background softens gradually. The overall aesthetic conveys spontaneous elegance, luxurious travel atmosphere, pastel luminosity, polished beauty, and premium editorial photography.",
+      "categories": [
+        "Photography",
+        "Commercial & Editorial"
+      ]
     }
   ]
 }

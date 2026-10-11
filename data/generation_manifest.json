@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "workflow_sha256": "9ecf1a4d26182d20dd3caa1f0097cd34aec22a6c336ddd09d447f6941d69ecd2",
-  "updated_at": "2026-10-11T14:47:55Z",
+  "updated_at": "2026-10-11T17:20:20Z",
   "images": {
     "portrait/anime-style": {
       "base_prompt_id": "portrait",
@@ -64,7 +64,7 @@
         "subfolder": "krea2-style-library\\portrait",
         "type": "output"
       },
-      "recovered_at": "2026-10-11T14:45:27Z"
+      "recovered_at": "2026-10-11T17:17:40Z"
     },
     "portrait/70s-anime": {
       "base_prompt_id": "portrait",
@@ -6049,7 +6049,7 @@
         "subfolder": "krea2-style-library\\full-figure",
         "type": "output"
       },
-      "recovered_at": "2026-10-11T14:45:27Z"
+      "recovered_at": "2026-10-11T17:17:40Z"
     },
     "full-figure/anime-style": {
       "base_prompt_id": "full-figure",
@@ -9934,7 +9934,7 @@
         "subfolder": "krea2-style-library\\portrait-v2",
         "type": "output"
       },
-      "recovered_at": "2026-10-11T14:45:27Z"
+      "recovered_at": "2026-10-11T17:17:40Z"
     },
     "portrait-v2/anime-style": {
       "base_prompt_id": "portrait-v2",
@@ -15961,7 +15961,7 @@
         "subfolder": "krea2-style-library\\plain-portrait",
         "type": "output"
       },
-      "recovered_at": "2026-10-11T14:45:27Z"
+      "recovered_at": "2026-10-11T17:17:40Z"
     },
     "plain-portrait/anime-style": {
       "base_prompt_id": "plain-portrait",
@@ -24130,7 +24130,7 @@
         "subfolder": "krea2-style-library\\architecture",
         "type": "output"
       },
-      "recovered_at": "2026-10-11T14:45:27Z"
+      "recovered_at": "2026-10-11T17:17:40Z"
     },
     "architecture/anime-style": {
       "base_prompt_id": "architecture",
@@ -30157,7 +30157,7 @@
         "subfolder": "krea2-style-library\\animal-landscape",
         "type": "output"
       },
-      "recovered_at": "2026-10-11T14:45:27Z"
+      "recovered_at": "2026-10-11T17:17:40Z"
     },
     "animal-landscape/anime-style": {
       "base_prompt_id": "animal-landscape",
@@ -36087,7 +36087,7 @@
         "subfolder": "krea2-style-library\\materials",
         "type": "output"
       },
-      "recovered_at": "2026-10-11T14:45:27Z"
+      "recovered_at": "2026-10-11T17:17:40Z"
     },
     "materials/anime-style": {
       "base_prompt_id": "materials",
@@ -41828,7 +41828,7 @@
         "subfolder": "krea2-style-library\\panoramic-environment",
         "type": "output"
       },
-      "recovered_at": "2026-10-11T14:45:27Z"
+      "recovered_at": "2026-10-11T17:17:40Z"
     },
     "panoramic-environment/anime-style": {
       "base_prompt_id": "panoramic-environment",
@@ -47706,6 +47706,166 @@
       "bytes": 181174,
       "comfy_output": {
         "filename": "niji-v7-semi-real-anime_00001_.png",
+        "subfolder": "krea2-style-library\\panoramic-environment",
+        "type": "output"
+      }
+    },
+    "portrait/soft-flash-pastel-fashion-photography": {
+      "base_prompt_id": "portrait",
+      "style_id": "soft-flash-pastel-fashion-photography",
+      "kind": "style",
+      "status": "complete",
+      "path": "images/portrait/soft-flash-pastel-fashion-photography.webp",
+      "seed": 123456789,
+      "width": 1024,
+      "height": 1536,
+      "prompt_sha256": "4d003bf41d6e3aaa2688ea797898c6266e7c9f35448926ed7c2c1a8f53764528",
+      "workflow_sha256": "9ecf1a4d26182d20dd3caa1f0097cd34aec22a6c336ddd09d447f6941d69ecd2",
+      "prompt_id": "61a4e599-935e-4cf5-bfc9-934097b0657a",
+      "generated_at": "2026-10-11T17:18:07Z",
+      "bytes": 114150,
+      "comfy_output": {
+        "filename": "soft-flash-pastel-fashion-photography_00001_.png",
+        "subfolder": "krea2-style-library\\portrait",
+        "type": "output"
+      }
+    },
+    "portrait-v2/soft-flash-pastel-fashion-photography": {
+      "base_prompt_id": "portrait-v2",
+      "style_id": "soft-flash-pastel-fashion-photography",
+      "kind": "style",
+      "status": "complete",
+      "path": "images/portrait-v2/soft-flash-pastel-fashion-photography.webp",
+      "seed": 123456789,
+      "width": 1024,
+      "height": 1536,
+      "prompt_sha256": "29dd74c988c82a2b87fef393e0f6f78a7a1c6f05df0f633614342816c1d8dfab",
+      "workflow_sha256": "9ecf1a4d26182d20dd3caa1f0097cd34aec22a6c336ddd09d447f6941d69ecd2",
+      "prompt_id": "1e2fab5a-fea2-4897-bfdb-aa66c80caafe",
+      "generated_at": "2026-10-11T17:18:26Z",
+      "bytes": 85000,
+      "comfy_output": {
+        "filename": "soft-flash-pastel-fashion-photography_00001_.png",
+        "subfolder": "krea2-style-library\\portrait-v2",
+        "type": "output"
+      }
+    },
+    "plain-portrait/soft-flash-pastel-fashion-photography": {
+      "base_prompt_id": "plain-portrait",
+      "style_id": "soft-flash-pastel-fashion-photography",
+      "kind": "style",
+      "status": "complete",
+      "path": "images/plain-portrait/soft-flash-pastel-fashion-photography.webp",
+      "seed": 123456789,
+      "width": 1024,
+      "height": 1536,
+      "prompt_sha256": "60d3f06976658a5baa65758c4174ea6b620edce612014ad5b9dbba45abe4bedd",
+      "workflow_sha256": "9ecf1a4d26182d20dd3caa1f0097cd34aec22a6c336ddd09d447f6941d69ecd2",
+      "prompt_id": "a0cc3bc7-7ff3-4a76-bb50-3e4a29f35b47",
+      "generated_at": "2026-10-11T17:18:47Z",
+      "bytes": 110340,
+      "comfy_output": {
+        "filename": "soft-flash-pastel-fashion-photography_00001_.png",
+        "subfolder": "krea2-style-library\\plain-portrait",
+        "type": "output"
+      }
+    },
+    "full-figure/soft-flash-pastel-fashion-photography": {
+      "base_prompt_id": "full-figure",
+      "style_id": "soft-flash-pastel-fashion-photography",
+      "kind": "style",
+      "status": "complete",
+      "path": "images/full-figure/soft-flash-pastel-fashion-photography.webp",
+      "seed": 123456789,
+      "width": 1024,
+      "height": 1536,
+      "prompt_sha256": "48877c26c19f52e18268f3c174575485b864d2543f782324df4ec7767680c6d9",
+      "workflow_sha256": "9ecf1a4d26182d20dd3caa1f0097cd34aec22a6c336ddd09d447f6941d69ecd2",
+      "prompt_id": "ef158543-03c4-4c09-9ef0-7d4923b293e7",
+      "generated_at": "2026-10-11T17:19:06Z",
+      "bytes": 114816,
+      "comfy_output": {
+        "filename": "soft-flash-pastel-fashion-photography_00001_.png",
+        "subfolder": "krea2-style-library\\full-figure",
+        "type": "output"
+      }
+    },
+    "architecture/soft-flash-pastel-fashion-photography": {
+      "base_prompt_id": "architecture",
+      "style_id": "soft-flash-pastel-fashion-photography",
+      "kind": "style",
+      "status": "complete",
+      "path": "images/architecture/soft-flash-pastel-fashion-photography.webp",
+      "seed": 123456789,
+      "width": 1536,
+      "height": 1024,
+      "prompt_sha256": "f1795c60488806a6dc03dc9679e811cd81db466fc1765b132c1d22513da202a4",
+      "workflow_sha256": "9ecf1a4d26182d20dd3caa1f0097cd34aec22a6c336ddd09d447f6941d69ecd2",
+      "prompt_id": "d4fe5a4c-562f-45ea-af70-b54758e6551e",
+      "generated_at": "2026-10-11T17:19:28Z",
+      "bytes": 189638,
+      "comfy_output": {
+        "filename": "soft-flash-pastel-fashion-photography_00001_.png",
+        "subfolder": "krea2-style-library\\architecture",
+        "type": "output"
+      }
+    },
+    "animal-landscape/soft-flash-pastel-fashion-photography": {
+      "base_prompt_id": "animal-landscape",
+      "style_id": "soft-flash-pastel-fashion-photography",
+      "kind": "style",
+      "status": "complete",
+      "path": "images/animal-landscape/soft-flash-pastel-fashion-photography.webp",
+      "seed": 123456789,
+      "width": 1536,
+      "height": 1024,
+      "prompt_sha256": "591b9de4b48a939b8cd76010c9ecc3f8e21f8b9afb9f4fce5d2a66c5cc230ae3",
+      "workflow_sha256": "9ecf1a4d26182d20dd3caa1f0097cd34aec22a6c336ddd09d447f6941d69ecd2",
+      "prompt_id": "bb151df9-3137-4e73-8566-3bb985bbdfe7",
+      "generated_at": "2026-10-11T17:19:48Z",
+      "bytes": 141572,
+      "comfy_output": {
+        "filename": "soft-flash-pastel-fashion-photography_00001_.png",
+        "subfolder": "krea2-style-library\\animal-landscape",
+        "type": "output"
+      }
+    },
+    "materials/soft-flash-pastel-fashion-photography": {
+      "base_prompt_id": "materials",
+      "style_id": "soft-flash-pastel-fashion-photography",
+      "kind": "style",
+      "status": "complete",
+      "path": "images/materials/soft-flash-pastel-fashion-photography.webp",
+      "seed": 123456789,
+      "width": 1024,
+      "height": 1024,
+      "prompt_sha256": "227242eaf4a8943f09e8c77b1c288a36f1a81b1fad65fb1e9b651f2ce154922f",
+      "workflow_sha256": "9ecf1a4d26182d20dd3caa1f0097cd34aec22a6c336ddd09d447f6941d69ecd2",
+      "prompt_id": "e7dd6f6e-75f5-4b8e-8716-77f727cb2d24",
+      "generated_at": "2026-10-11T17:20:03Z",
+      "bytes": 56692,
+      "comfy_output": {
+        "filename": "soft-flash-pastel-fashion-photography_00001_.png",
+        "subfolder": "krea2-style-library\\materials",
+        "type": "output"
+      }
+    },
+    "panoramic-environment/soft-flash-pastel-fashion-photography": {
+      "base_prompt_id": "panoramic-environment",
+      "style_id": "soft-flash-pastel-fashion-photography",
+      "kind": "style",
+      "status": "complete",
+      "path": "images/panoramic-environment/soft-flash-pastel-fashion-photography.webp",
+      "seed": 123456789,
+      "width": 1536,
+      "height": 864,
+      "prompt_sha256": "253b813c4dbed80c96cc88820567efc48682f26668ae28aff78ee10c4b850467",
+      "workflow_sha256": "9ecf1a4d26182d20dd3caa1f0097cd34aec22a6c336ddd09d447f6941d69ecd2",
+      "prompt_id": "afc9942d-d8e7-4d91-a464-c88a94a2235a",
+      "generated_at": "2026-10-11T17:20:20Z",
+      "bytes": 137008,
+      "comfy_output": {
+        "filename": "soft-flash-pastel-fashion-photography_00001_.png",
         "subfolder": "krea2-style-library\\panoramic-environment",
         "type": "output"
       }

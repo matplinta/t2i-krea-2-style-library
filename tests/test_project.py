@@ -17,9 +17,9 @@ class CatalogTests(unittest.TestCase):
         cls.styles = generate_images.load_styles(ROOT / "data" / "styles.json")
 
     def test_catalog_has_expected_unique_styles(self):
-        self.assertEqual(len(self.styles), 287)
-        self.assertEqual(len({style["id"] for style in self.styles}), 287)
-        self.assertEqual(len({style["descriptor"].casefold() for style in self.styles}), 287)
+        self.assertEqual(len(self.styles), 288)
+        self.assertEqual(len({style["id"] for style in self.styles}), 288)
+        self.assertEqual(len({style["descriptor"].casefold() for style in self.styles}), 288)
 
     def test_removed_and_renamed_records(self):
         names = {style["name"] for style in self.styles}
@@ -31,7 +31,7 @@ class CatalogTests(unittest.TestCase):
         self.assertIn("Film Noir 2", names)
 
     def test_orders_are_contiguous(self):
-        self.assertEqual([style["order"] for style in self.styles], list(range(1, 288)))
+        self.assertEqual([style["order"] for style in self.styles], list(range(1, 289)))
 
 
 class WorkflowTests(unittest.TestCase):

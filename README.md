@@ -2,7 +2,7 @@
 
 [**Open the live style library**](https://matplinta.github.io/t2i-krea-2-style-library/)
 
-A static visual reference for comparing 287 prompt-defined styles with Krea 2. Each comparison set holds the subject, seed, and dimensions constant, making the effect of the style descriptor easier to inspect across portrait, landscape, square, and panoramic compositions.
+A static visual reference for comparing 288 prompt-defined styles with Krea 2. Each comparison set holds the subject, seed, and dimensions constant, making the effect of the style descriptor easier to inspect across portrait, landscape, square, and panoramic compositions.
 
 The project grew out of a practical problem: long style lists are useful as wildcards, but difficult to evaluate from text alone. This library turns them into a browsable matrix generated locally through ComfyUI.
 
