@@ -836,6 +836,7 @@ h1 {
   }
 
   .header-options > .details-toggle,
+  .header-options > .copy-name-toggle,
   .header-options > .density-control,
   .header-options > .export-menu {
     grid-column: 1 / -1;

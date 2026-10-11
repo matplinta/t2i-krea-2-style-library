@@ -6,6 +6,7 @@
   const SHOW_BASE_IMAGE_KEY = 'krea2-style-library-show-base-image-v1';
   const CARD_DETAILS_KEY = 'krea2-style-library-card-details-v1';
   const GRID_COLUMNS_KEY = 'krea2-style-library-grid-columns-v1';
+  const COPY_STYLE_NAME_KEY = 'krea2-style-library-copy-style-name-v1';
   const BASE_IMAGE_ID = 'base';
   const $ = (selector) => document.querySelector(selector);
 
@@ -18,6 +19,7 @@
     showBaseImage: false,
     showCardDetails: false,
     gridColumns: 5,
+    copyStyleName: true,
   };
   let viewerImages = [];
   let viewerIndex = -1;
@@ -88,6 +90,33 @@
     } catch (_) {
       // The toggle still works for the current session.
     }
+  }
+
+  function loadCopyStyleNamePreference() {
+    try {
+      return localStorage.getItem(COPY_STYLE_NAME_KEY) !== 'false';
+    } catch (_) {
+      return true;
+    }
+  }
+
+  function saveCopyStyleNamePreference() {
+    try {
+      localStorage.setItem(COPY_STYLE_NAME_KEY, String(state.copyStyleName));
+    } catch (_) {
+      // The toggle still works for the current session.
+    }
+  }
+
+  function copyButtonTitle() {
+    return state.copyStyleName ? 'Copy style name and descriptor' : 'Copy style descriptor';
+  }
+
+  function applyCopyStyleNamePreference() {
+    $('#copy-style-name').checked = state.copyStyleName;
+    document.querySelectorAll('.copy-style-button').forEach((button) => {
+      button.title = copyButtonTitle();
+    });
   }
 
   function applyCardDetailsVisibility() {
@@ -264,10 +293,10 @@
     button.type = 'button';
     button.className = 'copy-style-button';
     button.setAttribute('aria-label', `Copy ${style.name} style prompt`);
-    button.title = 'Copy style name and descriptor';
+    button.title = copyButtonTitle();
     button.appendChild(copyIcon());
     button.addEventListener('click', async () => {
-      const text = `${style.name}. ${style.descriptor}`;
+      const text = state.copyStyleName ? `${style.name}. ${style.descriptor}` : style.descriptor;
       try {
         await copyToClipboard(text);
         button.classList.add('copied');
@@ -590,6 +619,11 @@
       saveCardDetailsPreference();
       applyCardDetailsVisibility();
     });
+    $('#copy-style-name').addEventListener('change', (event) => {
+      state.copyStyleName = event.target.checked;
+      saveCopyStyleNamePreference();
+      applyCopyStyleNamePreference();
+    });
     $('#grid-columns').addEventListener('input', (event) => {
       state.gridColumns = Number.parseInt(event.target.value, 10);
       saveGridColumnsPreference();
@@ -688,9 +722,11 @@
     state.showBaseImage = loadBaseImagePreference();
     state.showCardDetails = loadCardDetailsPreference();
     state.gridColumns = loadGridColumnsPreference();
+    state.copyStyleName = loadCopyStyleNamePreference();
     bindEvents();
     $('#show-base-image').checked = state.showBaseImage;
     applyCardDetailsVisibility();
+    applyCopyStyleNamePreference();
     applyGridColumns();
     try {
       const [catalog, promptConfig, manifest] = await Promise.all([

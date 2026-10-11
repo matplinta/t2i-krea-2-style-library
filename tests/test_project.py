@@ -235,6 +235,15 @@ class SiteTests(unittest.TestCase):
         self.assertIn("showCardDetails: false", javascript)
         self.assertIn("details-hidden", stylesheet)
 
+    def test_copy_style_name_toggle_is_persisted_separately_from_favorites(self):
+        html = (ROOT / "index.html").read_text(encoding="utf-8")
+        javascript = (ROOT / "assets" / "app.js").read_text(encoding="utf-8")
+        self.assertIn('id="copy-style-name" type="checkbox" checked', html)
+        self.assertIn("'krea2-style-library-copy-style-name-v1'", javascript)
+        self.assertIn("'krea2-style-library-favorites-v2'", javascript)
+        self.assertIn("copyStyleName: true", javascript)
+        self.assertIn("state.copyStyleName ? `${style.name}. ${style.descriptor}` : style.descriptor", javascript)
+
     def test_favorite_updates_do_not_rerender_the_entire_catalog(self):
         javascript = (ROOT / "assets" / "app.js").read_text(encoding="utf-8")
         favorite_handler = javascript[
